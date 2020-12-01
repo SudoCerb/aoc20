@@ -1,11 +1,6 @@
 import pandas as pd
 
 data = pd.read_csv('../input.txt', header=None)
-# print(data.head())
-
-# sumMatrix = data.copy()
-# for i in data.index:
-#     sumMatrix[i] = None
 
 for i in data.index:
     for j in data.index:
