@@ -6,7 +6,7 @@ def validate(field, line):
         if match:
             return True
     elif field == 'pid':
-        match = re.search('pid:\d{9}', line)
+        match = re.search('pid:\d{9}(\\n| |\')', line)
         if match:
             return True
     elif field == 'eyr':
@@ -49,7 +49,7 @@ def validate(field, line):
                     return True
     return False
 
-file = open('invalid.txt','r')
+file = open('input.txt','r')
 lines = file.readlines()
 rf = []
 for line in lines:
@@ -73,7 +73,6 @@ for line in rf:
                         fieldValidation.append(field)
 
         if set(fieldValidation) == set(requiredFields):
-        # if len(fieldValidation) == len(requiredFields):
             validPassports += 1
             print(currentDoc)
         currentDoc = []
@@ -87,7 +86,7 @@ if (currentDoc != []) and readStop == False:
                 if validate(field, data):
                     fieldValidation.append(field)
 
-    if len(fieldValidation) == len(requiredFields):
+    if set(fieldValidation) == set(requiredFields):
         validPassports += 1
         print(currentDoc)
 print(validPassports)
