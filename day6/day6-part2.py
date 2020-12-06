@@ -5,7 +5,6 @@ count = 1
 
 groups = []
 curGroup = []
-breakpoint()
 for line in lines:
     if len(line) > 0:
         curGroup.append(line)
