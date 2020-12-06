@@ -46,4 +46,3 @@ def prod(iterable):
     return answer
 answer = prod(trees)
 print(f"Answer: {answer}")
-
