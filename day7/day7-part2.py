@@ -29,16 +29,15 @@ def delve(colour):
     :return:
     """
     bags = RULES[colour]
-    print(colour,'|',bags)
+    print(colour.center(120,'-'))
+    print(bags)
     countBags = 0
-    global TOTAL_BAGS
     if bags == ['']:
         return 0
     for bag in bags:
         theseBags = int(bag.split(' ')[0])
         countBags += theseBags
         countBags += theseBags * delve(' '.join(bag.split(' ')[1:]))
-        TOTAL_BAGS += countBags
     return countBags
 
 def traverse(rule, colour):
@@ -58,5 +57,5 @@ def traverse(rule, colour):
         CHECKED_RULES.append(i)
         traverse(i, colour)
 
-ans = delve('shiny gold')
+TOTAL_BAGS = delve('shiny gold')
 print(TOTAL_BAGS)
